@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Point2D.hpp"
 #include "Polygone.hpp"
+#include "Parcelle.hpp"
 
 using namespace std;
 
@@ -112,6 +113,20 @@ int main()
     // Affichage des polygones après la translation
     cout << "Polygone original après translation : " << originalPoly << endl;
     cout << "Polygone copié après translation : " << copiedPoly << endl;
+
+    // Création parcelle par défaut
+    Parcelle<int> parcelle1;
+
+    cout << parcelle1 << endl;
+
+    // Création nouvelle parcelle
+    Polygone<float> floatPoly;
+    floatPoly.addPoint(Point2D<float>(7.2f, 2.2f));
+    floatPoly.addPoint(Point2D<float>(1.2f, 3.2f));
+    floatPoly.addPoint(Point2D<float>(0.0f, 0.0f));
+    floatPoly.addPoint(Point2D<float>(6.3f, 8.1f));
+
+    Parcelle<float> parcelle2(3, "David", floatPoly);
 
     return 0;
 }
