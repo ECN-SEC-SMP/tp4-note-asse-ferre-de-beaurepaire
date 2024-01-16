@@ -117,8 +117,6 @@ int main()
     // Création parcelle par défaut
     Parcelle<int> parcelle1;
 
-    cout << parcelle1 << endl;
-
     // Création nouvelle parcelle
     Polygone<float> floatPoly;
     floatPoly.addPoint(Point2D<float>(7.2f, 2.2f));
@@ -126,7 +124,9 @@ int main()
     floatPoly.addPoint(Point2D<float>(0.0f, 0.0f));
     floatPoly.addPoint(Point2D<float>(6.3f, 8.1f));
 
-    Parcelle<float> parcelle2(3, "David", floatPoly);
+    cout << parcelle1 << endl;
 
+    Parcelle<float> parcelle2(4, "David", floatPoly);
+    cout << parcelle2 << endl;
     return 0;
 }

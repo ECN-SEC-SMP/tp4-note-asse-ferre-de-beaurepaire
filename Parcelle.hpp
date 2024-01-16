@@ -53,26 +53,29 @@ class Parcelle
         void setType(string type);
 
         // Surcharge opérateur <<
-        template <typename T>
-        ostream& operator<<(ostream& os, const Parcelle<T>& parc);
+        template <typename U>
+        friend ostream& operator<<(ostream& os, const Parcelle<U>& parc);
 };
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 template <typename T>
-Parcelle<T>::Parcelle() : numero(0), proprietaire(""), forme(T()), type(""), pConstructible(0), surface(0.0f)
+Parcelle<T>::Parcelle() : type(""), proprietaire(""), numero(0), pConstructible(0), surface(0.0f), forme(Polygone<T>())
 {
 
 }
 
+// Constructeur détaillé
 template <typename T>
-Parcelle<T>::Parcelle(int num, string prop, Polygone<T> form) : numero(num), proprietaire(prop), forme(form), type(""), pConstructible(0), surface(0.0f)
+Parcelle<T>::Parcelle(int num, string prop, Polygone<T> forme)
+    : type(""), proprietaire(prop), numero(num), pConstructible(0), surface(0.0f), forme(forme)
 {
 
 }
 
-// Implémentation du constructeur par recopie
+// Constructeur par recopie
 template <typename T>
-Parcelle<T>::Parcelle(const Parcelle& other) : numero(other.numero), proprietaire(other.proprietaire), forme(other.forme), type(other.type), pConstructible(other.pConstructible), surface(other.surface)
+Parcelle<T>::Parcelle(const Parcelle& parc)
+    : numero(parc.numero), proprietaire(parc.proprietaire), surface(parc.surface), forme(parc.forme)
 {
 
 }
@@ -82,10 +85,7 @@ template <typename T>
 ostream& operator<<(ostream& os, const Parcelle<T>& parc)
 {
     os << "Parcelle :";
-    os << parc.type;
-    os << ", ";
-    os << parc.proprietaire;
-    os << ". ";
+    os << "Type: " << parc.type << "Proprietaire: " << parc.proprietaire;
 
     return os;
 }
