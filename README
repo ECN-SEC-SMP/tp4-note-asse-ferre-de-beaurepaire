@@ -1,0 +1,31 @@
+# Projet de Gestion du PLU et du Cadastre
+
+Le but de ce travail pratique (TP) est de concevoir un ensemble de classes permettant à une communauté de communes de gérer un PLU (Plan Local d’Urbanisme) simplifié. Plus spécifiquement, le projet vise à mettre en place un nouveau Système d'Information (SI) pour gérer de manière adéquate le cadastre, tout en prenant en compte les nouvelles directives du PLU.
+
+## Objectifs
+
+- Implémentation d'un ensemble de classes pour la gestion du PLU.
+- Intégration des fonctionnalités nécessaires pour la gestion du cadastre.
+- Adaptation du SI aux nouvelles directives du PLU.
+- Facilitation de la consultation et de la modification des informations cadastrales.
+
+## Fonctionnalités prévues
+
+1. **Gestion du PLU :** Classes permettant de définir les zones, règles d'urbanisme, et autres éléments du Plan Local d’Urbanisme.
+
+2. **Gestion du Cadastre :** Intégration de fonctionnalités pour la gestion des propriétés, des parcelles, et des informations cadastrales.
+
+3. **Conformité aux Directives du PLU :** Mise en place des fonctionnalités spécifiques nécessaires pour respecter les nouvelles directives du Plan Local d’Urbanisme.
+
+## Technologies envisagées
+
+- Utilisation d'un langage de programmation orienté objet (C++).
+- Utilisation de structures de données appropriées pour la gestion des informations cadastrales.
+
+## Livrables attendus
+
+- Code source du projet avec une documentation appropriée.
+- Rapport explicatif des choix de conception et d'implémentation.
+- Éventuellement, une démonstration du système avec des cas d'utilisation concrets.
+
+Ce TP vise à développer des compétences en programmation orientée objet, en gestion de bases de données et en conception de systèmes d'information adaptés aux besoins d'une communauté de communes pour la gestion du PLU et du cadastre.
