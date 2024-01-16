@@ -30,11 +30,12 @@ class Parcelle
         Parcelle(const Parcelle& parc);
 
         // Accesseurs get
-        int getNumero() const;
+        string getType() const;
         string getProprietaire() const;
+        int getNumero() const;
+        int getPContructible() const;
         float getSurface() const;
         Polygone<T> getForme() const;
-        string getName() const;
 
         // Accesseurs set
         void setNumero(int n);
@@ -71,10 +72,59 @@ Parcelle<T>::Parcelle(const Parcelle& parc)
 
 }
 
+// getters
+// a mettre en virtuel pur plus tard pour ne pas bloquer l'instanciation pour les jeux d'essai
+template <typename T>
+string Parcelle<T>::getType() const
+{
+    return this->type;
+}
+template <typename T>
+string Parcelle<T>::getProprietaire() const
+{
+    return this->proprietaire;
+}
 template <typename T>
 int Parcelle<T>::getNumero() const
 {
     return this->numero;
+}
+template <typename T>
+int Parcelle<T>::getPContructible() const
+{
+    return this->pC;
+}
+template <typename T>
+float Parcelle<T>::getSurface() const
+{
+    return this->surface;
+}
+template <typename T>
+Polygone<T> Parcelle<T>::getForme() const
+{
+    return this->forme;
+}
+
+// setters
+template <typename T>
+void Parcelle<T>::setNumero(int n)
+{
+    this->numero = n;
+}
+template <typename T>
+void Parcelle<T>::setProprietaire(string prop)
+{
+    this->numero = prop;
+}
+template <typename T>
+void Parcelle<T>::setForme(Polygone<T> forme)
+{
+    this->forme = forme;
+}
+template <typename T>
+void Parcelle<T>::setType(string type)
+{
+    this->type = type;
 }
 
 // Surcharge de l'opérateur de sortie <<
@@ -82,9 +132,9 @@ template <typename T>
 ostream& operator<<(ostream& os, const Parcelle<T>& parc)
 {
     os << "Parcelle :";
-    os << " Type: " << parc.type << " Proprietaire: " << parc.proprietaire << endl;
+    os << " Type: " << parc.getType() << " Proprietaire: " << parc.getProprietaire() << endl;
     os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.pConstructible << endl;
-    os << " Surface: " << parc.surface << " forme: " << parc.forme;
+    os << " Surface: " << parc.getSurface() << " forme: " << parc.getForme();
 
     return os;
 }
