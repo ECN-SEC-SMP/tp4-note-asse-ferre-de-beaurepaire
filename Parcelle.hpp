@@ -2,6 +2,7 @@
 
 #include "Polygone.hpp"
 #include <string>
+#include <ostream>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ class Parcelle
 
         float surface;
 
-        Polygone<int, float> forme;
+        Polygone<T> forme;
 
     protected :
 
@@ -40,7 +41,7 @@ class Parcelle
 
         float getSurface() const;
 
-        Polygone<int, float> getForme() const;
+        Polygone<T> getForme() const;
 
         string getName() const;
 
@@ -48,7 +49,7 @@ class Parcelle
         // Accesseurs set
         void setNumero(int n);
         void setProprietaire(string prop);
-        void setForme(Polygone<int, float> forme);
+        void setForme(Polygone<T> forme);
         void setType(string type);
 
         // Surcharge opérateur <<
@@ -64,14 +65,14 @@ Parcelle<T>::Parcelle() : numero(0), proprietaire(""), forme(T()), type(""), pCo
 }
 
 template <typename T>
-Parcelle<T>::Parcelle(int num, string prop, Polygone<T> forme) : numero(num), proprietaire(prop), forme(form), type(""), pConstructible(0), surface(0.0f)
+Parcelle<T>::Parcelle(int num, string prop, Polygone<T> form) : numero(num), proprietaire(prop), forme(form), type(""), pConstructible(0), surface(0.0f)
 {
 
 }
 
 // Implémentation du constructeur par recopie
 template <typename T>
-Point2D<T>::Point2D(const Point2D& other) : x(other.x), y(other.y)
+Parcelle<T>::Parcelle(const Parcelle& other) : numero(other.numero), proprietaire(other.proprietaire), forme(other.forme), type(other.type), pConstructible(other.pConstructible), surface(other.surface)
 {
 
 }
