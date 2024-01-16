@@ -10,23 +10,23 @@ template <typename T>
 class Polygone
 {
     private:
-        vector<Point2D<T>> sommets;
+        vector<Point2D<T> > sommets;
 
     public:
         // Constructeur par défaut
         Polygone();
 
         // Constructeur avec des valeurs initiales
-        Polygone(vector<Point2D<T>> listeSommets);
+        Polygone(vector<Point2D<T> > listeSommets);
 
         // Constructeur par recopie
         Polygone(const Polygone<T>& poly);
 
         // Accesseurs get
-        vector<Point2D<T>> getSommets() const;
+        vector<Point2D<T> > getSommets() const;
 
         // Accesseurs set
-        void setSommets(const vector<Point2D<T>>& listeSommets);
+        void setSommets(const vector<Point2D<T> >& listeSommets);
 
         // Permet d'ajouter un point
         void addPoint(const Point2D<T>& point);
@@ -43,7 +43,7 @@ Polygone<T>::Polygone()
 
 // Constructeur avec des valeurs initiales
 template <typename T>
-Polygone<T>::Polygone(vector<Point2D<T>> listeSommets) : sommets(listeSommets)
+Polygone<T>::Polygone(vector<Point2D<T> > listeSommets) : sommets(listeSommets)
 {
 
 }
@@ -57,14 +57,14 @@ Polygone<T>::Polygone(const Polygone<T>& poly) : sommets(poly.sommets)
 
 // Accesseurs get
 template <typename T>
-vector<Point2D<T>> Polygone<T>::getSommets() const
+vector<Point2D<T> > Polygone<T>::getSommets() const
 {
     return sommets;
 }
 
 // Accesseurs set
 template <typename T>
-void Polygone<T>::setSommets(const vector<Point2D<T>>& listeSommets)
+void Polygone<T>::setSommets(const vector<Point2D<T> >& listeSommets)
 {
     sommets = listeSommets;
 }
