@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
+#pragma once
 class Constructible {
 public:
-    virtual ~Constructible() = default;
+    Constructible();
     virtual float surfaceconstructible() const = 0;
 };
