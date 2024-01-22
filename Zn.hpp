@@ -42,7 +42,7 @@ Zn<T>::Zn() : typeCulture("")
 // Constructeur détaillé
 template <typename T>
 Zn<T>::Zn(int num, string prop, Polygone<T> forme, string tCulture)
-: Parcelle<T>(numero(num), proprietaire(prop), pConstructible(pConst), surface(surf), forme(Polygone<T>()))
+: Parcelle<T>(num, prop, Polygone<T>())
 {
 
 }
