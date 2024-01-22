@@ -11,13 +11,15 @@ class Zau : public Zu<T>
 {
     private :
 
-        float surfaceAConstruire;
-
     protected :
 
     public :
 
-        float getSurfaceAConstruire();
-
-        void setSurfaceAConstruire(float newSurfaceAConstruire);
+        Zau(int num, string prop, Polygone<T> form, int pConstructible);
 };
+
+template <typename T>
+Zau<T>::Zau(int num, string prop, Polygone<T> form, int pConstructible) : Zu<T>(num, prop, form, 0, pConstructible)
+{
+
+}

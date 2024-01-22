@@ -175,10 +175,12 @@ void Parcelle<T>::setPContructible(int pConstructible)
 template <typename T>
 ostream& operator<<(ostream& os, const Parcelle<T>& parc)
 {
-    os << "Parcelle :";
-    os << " Type: " << parc.getType() << " Proprietaire: " << parc.getProprietaire() << endl;
-    os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.getPContructible() << endl;
-    os << " Surface: " << parc.getSurface() << " forme: " << parc.getForme();
+    os << "Parcelle numero:" << parc.getNumero() << endl;
+    os << "     Type: " << parc.getType() << endl;
+    os << "     Polygone: " << parc.getForme() << endl;
+    os << "     Proprietaire: " << parc.getProprietaire() << endl;
+    os << "     Surface: " << parc.getSurface() << endl;
+    os << "     \%Constructible: " << parc.getPContructible() << "%" << endl;
 
     return os;
 }
