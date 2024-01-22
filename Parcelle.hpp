@@ -73,7 +73,7 @@ Parcelle<T>::Parcelle(const Parcelle& parc)
 }
 
 // getters
-// a mettre en virtuel pur plus tard pour ne pas bloquer l'instanciation pour les jeux d'essai
+// a mettre en virtuel pur plus tard pour ne pas bloquer l'instanciation lors des jeux d'essai
 template <typename T>
 string Parcelle<T>::getType() const
 {
@@ -133,7 +133,7 @@ ostream& operator<<(ostream& os, const Parcelle<T>& parc)
 {
     os << "Parcelle :";
     os << " Type: " << parc.getType() << " Proprietaire: " << parc.getProprietaire() << endl;
-    os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.pConstructible << endl;
+    os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.getPContructible() << endl;
     os << " Surface: " << parc.getSurface() << " forme: " << parc.getForme();
 
     return os;
