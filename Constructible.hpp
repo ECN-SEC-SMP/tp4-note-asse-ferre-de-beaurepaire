@@ -1,6 +1,6 @@
 #pragma once
-class Constructible {
+class Constructible
+{
 public:
-    Constructible();
-    virtual float surfaceconstructible() const = 0;
+    virtual float surfaceConstructible() const = 0;
 };
