@@ -3,7 +3,7 @@
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
 #include "Zu.hpp"
-#include "Zn.hpp"
+//#include "Zn.hpp"
 //#include "Za.hpp"
 
 using namespace std;
@@ -163,9 +163,30 @@ int main()
         cerr << "Impossible d'instancier la parcelle... " << e.what() << endl;
     }
 
+    cout << "*****************************Zu*******************************" << endl;
+
     cout << "Test du constructeur par défaut de Zu" << endl;
-    Zu<float> defZu;
-    cout << defZu << endl;
+    Zu<float> defaultZu;
+    cout << defaultZu << endl;
+
+    cout << "Test du constructeur détaillé de Zu" << endl;
+    Polygone<int> poly2100;
+    poly2100.addPoint(Point2D<int>(0, 30));
+    poly2100.addPoint(Point2D<int>(60, 100));
+    poly2100.addPoint(Point2D<int>(0, 100));
+    Zu<int> detailedZu(98, "jean", poly2100, 479.12198f, 55);
+    cout << detailedZu << endl;
+
+    cout << "Test de l'instanciation d'une Zu avec une surface de début supérieur à la surface de la parcelle..." << endl;
+    try
+    {
+        Zu<int> zuError(99, "Dave", originalPoly, 115.0f, 100);
+    }
+    catch (const invalid_argument& e)
+    {
+        cout << "Impossible d'instancier la parcelle..." << endl;
+        cout << e.what() << endl;
+    }
 
     return 0;
 }

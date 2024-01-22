@@ -44,6 +44,7 @@ class Parcelle
         void setProprietaire(string prop);
         void setForme(Polygone<T> forme);
         void setType(string type);
+        void setPContructible(int pConstructible);
 
         // Surcharge opérateur <<
         template <typename U>
@@ -52,7 +53,7 @@ class Parcelle
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 template <typename T>
-Parcelle<T>::Parcelle() : type(""), proprietaire(""), numero(0), pConstructible(0), surface(0.0f), forme(Polygone<T>())
+Parcelle<T>::Parcelle() : type(""), proprietaire(""), numero(0), pConstructible(100), surface(0.0f), forme(Polygone<T>())
 {
 
 }
@@ -60,7 +61,7 @@ Parcelle<T>::Parcelle() : type(""), proprietaire(""), numero(0), pConstructible(
 // Constructeur détaillé
 template <typename T>
 Parcelle<T>::Parcelle(int num, string prop, Polygone<T> forme)
-    : type(""), proprietaire(prop), numero(num), pConstructible(0), forme(forme)
+    : type(""), proprietaire(prop), numero(num), pConstructible(100), forme(forme)
 {
     this->surface = this->calculerSurface();
 }
@@ -162,6 +163,12 @@ void Parcelle<T>::setForme(Polygone<T> forme)
 
     //Recalcul de la surface
     this->surface = this->calculerSurface();
+}
+
+template <typename T>
+void Parcelle<T>::setPContructible(int pConstructible)
+{
+    this->pConstructible = pConstructible;
 }
 
 // Surcharge de l'opérateur de sortie <<
