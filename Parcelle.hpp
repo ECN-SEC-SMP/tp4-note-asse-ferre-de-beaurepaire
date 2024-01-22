@@ -92,7 +92,7 @@ int Parcelle<T>::getNumero() const
 template <typename T>
 int Parcelle<T>::getPContructible() const
 {
-    return this->pC;
+    return  this->pConstructible;
 }
 template <typename T>
 float Parcelle<T>::getSurface() const
