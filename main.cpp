@@ -163,5 +163,9 @@ int main()
         cerr << "Impossible d'instancier la parcelle... " << e.what() << endl;
     }
 
+    cout << "Test du constructeur par défaut de Zu" << endl;
+    Zu<float> defZu;
+    cout << defZu << endl;
+
     return 0;
 }

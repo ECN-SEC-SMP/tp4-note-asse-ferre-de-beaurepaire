@@ -17,7 +17,7 @@ class Zu : public Parcelle<T>, public Constructible
     protected:
 
     public:
-        // Constructeur par défaut
+        Zu();
         Zu(int num, string prop, Polygone<T> form, int pConstructible);
 
         float getSurfaceConstruite();
@@ -28,6 +28,13 @@ class Zu : public Parcelle<T>, public Constructible
 };
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
+
+template <typename T>
+Zu<T>::Zu() : Parcelle<T>(),  surfaceConstruite(0)
+{
+
+}
+
 template <typename T>
 Zu<T>::Zu(int num, string prop, Polygone<T> form, int surfaceConstruite) : Parcelle<T>(num, prop, form)
 {
