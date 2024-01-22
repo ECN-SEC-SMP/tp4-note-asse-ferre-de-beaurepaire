@@ -3,6 +3,7 @@
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
 #include "Zu.hpp"
+#include "Zau.hpp"
 //#include "Zn.hpp"
 //#include "Za.hpp"
 
@@ -188,5 +189,14 @@ int main()
         cout << e.what() << endl;
     }
 
+    cout << "*****************************Zau*******************************" << endl;
+    cout << "Test du constructeur détaillé de Zau" << endl;
+    Polygone<int> poly3500;
+    poly3500.addPoint(Point2D<int>(0, 30));
+    poly3500.addPoint(Point2D<int>(80, 30));
+    poly3500.addPoint(Point2D<int>(80, 100));
+    poly3500.addPoint(Point2D<int>(60, 100));
+    Zau<int> detailedZau(97, "3500", poly3500, 5);
+    cout << detailedZau << endl;
     return 0;
 }

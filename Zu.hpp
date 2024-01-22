@@ -61,8 +61,8 @@ float Zu<T>::surfaceConstructible() const
 template <typename T>
 ostream& operator<<(ostream& os, const Zu<T>& zu)
 {
-    os << static_cast<const Parcelle<T>&>(zu) << endl; // Appel de l'opérateur << de la classe Parcelle
-    os << " Surface construite: " << zu.surfaceConstruite << endl;
-    os << " Surface à contruire restante: " << zu.surfaceConstructible();
+    os << static_cast<const Parcelle<T>&>(zu); // Appel de l'opérateur << de la classe Parcelle
+    os << "     Surface construite: " << zu.surfaceConstruite << endl;
+    os << "     Surface à contruire restante: " << zu.surfaceConstructible();
     return os;
 }
