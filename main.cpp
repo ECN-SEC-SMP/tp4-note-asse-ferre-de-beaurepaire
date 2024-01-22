@@ -3,8 +3,8 @@
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
 #include "Zu.hpp"
-//#include "Zn.hpp"
-//#include "Za.hpp"
+#include "Zn.hpp"
+#include "Za.hpp"
 
 using namespace std;
 
@@ -124,6 +124,8 @@ int main()
     Parcelle<int> parcelle1;
     cout << "Parcelle1 (int, contructeur par défaut) - " << parcelle1 << endl;
 
+    cout << "-----" << endl;
+
     // Création nouvelle parcelle
     Polygone<float> floatPoly;
     floatPoly.addPoint(Point2D<float>(0.0f, 0.0f));
@@ -134,9 +136,13 @@ int main()
 
     cout << "Parcelle2 (float, contructeur détaillé) - " << parcelle2 << endl;
 
+    cout << "-----" << endl;
+
     Parcelle<float> parcelleCopie(parcelle2);
     cout << parcelleCopie << endl;
     cout << "parcelleCopie (copie de parcelle2) - " << parcelleCopie << endl;
+
+    cout << "-----" << endl;
 
     cout << "Test du re-calcul de la surface - " << parcelleCopie << endl;
     Polygone<float> lesPolyFloat;
@@ -146,6 +152,8 @@ int main()
     lesPolyFloat.addPoint(Point2D<float>(0.0f, 10.0f));
     parcelle2.setForme(lesPolyFloat);
     cout << "Recalcul de la surface suite à la modification de la forme - " << parcelle2 << endl;
+
+    cout << "-----" << endl;
 
     cout << "Tentative de calcul d'une surface négative - " << endl;
     Polygone<int> negPoly;
@@ -169,6 +177,8 @@ int main()
     Zu<float> defaultZu;
     cout << defaultZu << endl;
 
+    cout << "-----" << endl;
+
     cout << "Test du constructeur détaillé de Zu" << endl;
     Polygone<int> poly2100;
     poly2100.addPoint(Point2D<int>(0, 30));
@@ -176,6 +186,8 @@ int main()
     poly2100.addPoint(Point2D<int>(0, 100));
     Zu<int> detailedZu(98, "jean", poly2100, 479.12198f, 55);
     cout << detailedZu << endl;
+
+    cout << "-----" << endl;
 
     cout << "Test de l'instanciation d'une Zu avec une surface de début supérieur à la surface de la parcelle..." << endl;
     try
@@ -187,6 +199,40 @@ int main()
         cout << "Impossible d'instancier la parcelle..." << endl;
         cout << e.what() << endl;
     }
+
+    cout << "*****************************Zn*******************************" << endl;
+
+    cout << "Test du constructeur par defaut de Zn" << endl;
+    Zn<float> defaultZn;
+    cout << defaultZn << endl;
+
+    cout << "-----" << endl;
+
+    cout << "Test du constructeur detaille de Zn" << endl;
+    Polygone<int> poly2000;
+    poly2000.addPoint(Point2D<int>(80, 0));
+    poly2000.addPoint(Point2D<int>(100, 0));
+    poly2000.addPoint(Point2D<int>(100, 100));
+    poly2000.addPoint(Point2D<int>(80, 100));
+    Zn<int> znInt(67, "Ignace", poly2000);
+    cout << znInt << endl;
+
+    cout << "*****************************Za*******************************" << endl;
+
+    cout << "Test du constructeur par defaut de Za" << endl;
+    Za<float> defaultZa;
+    cout << defaultZa << endl;
+
+    cout << "-----" << endl;
+
+    cout << "Test du constructeur detaille de Za" << endl;
+    Polygone<int> poly2400;
+    poly2400.addPoint(Point2D<int>(0, 0));
+    poly2400.addPoint(Point2D<int>(80, 0));
+    poly2400.addPoint(Point2D<int>(80, 30));
+    poly2400.addPoint(Point2D<int>(0, 30));
+    Za<int> zaInt(92, "Didier", poly2400, "radis");
+    cout << zaInt << endl;
 
     return 0;
 }

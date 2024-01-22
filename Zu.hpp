@@ -47,7 +47,7 @@ Zu<T>::Zu(int num, string prop, Polygone<T> form, float surfaceConstruite, int p
     this->surfaceConstruite = surfaceConstruite;
     if (this->surfaceConstructible() < 0.0f)
         throw invalid_argument("La surface contruite ne peut pas être supérieure à la surface de la parcelle...");
-        
+
 }
 
 // Redéfinition de la méthode virtuelle pure

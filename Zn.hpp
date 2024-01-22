@@ -10,8 +10,6 @@ class Zn : public Parcelle<T>
 {
     private:
 
-        string typeCulture;
-
     protected:
 
     public:
@@ -19,53 +17,33 @@ class Zn : public Parcelle<T>
         // Constructeur par défaut
         Zn();
         // Constructeur détaillé
-        Zn(int num, string prop, Polygone<T> forme, string tCulture);
+        Zn(int num, string prop, Polygone<T> forme);
         // Constructeur par recopie
-        //Zn(const Zn& zn);
-
-        // Assesseur get
-        string getTypeCulture() const;
-
-        // Assesseur set
-        void setTypeCulture(string newTypeCulture);
+        Zn(const Zn& zn);
 };
 
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 // Constructeur par défaut
 template <typename T>
-Zn<T>::Zn() : typeCulture("")
+Zn<T>::Zn()
 {
-
+    this->setType("ZN");
+    this->setPContructible(0);
 }
 
 // Constructeur détaillé
 template <typename T>
-Zn<T>::Zn(int num, string prop, Polygone<T> forme, string tCulture)
-: Parcelle<T>(num, prop, Polygone<T>())
+Zn<T>::Zn(int num, string prop, Polygone<T> forme)
+: Parcelle<T>(num, prop, forme)
 {
-
+    this->setType("ZN");
+    this->setPContructible(0);
 }
 
-/*
 // Constructeur par recopie
 template <typename T>
-Zn<T>::Zn(const Zn& zn) : typeCulture(zn.typeCulture)
+Zn<T>::Zn(const Zn& zn)
 {
-
-}
-*/
-
-// Getter
-template <typename T>
-string Zn<T>::getTypeCulture() const
-{
-    return this->typeCulture;
-}
-
-// Setter
-template <typename T>
-void Zn<T>::setTypeCulture(string newTypeCulture)
-{
-    this->typeCulture = newTypeCulture;
+    this->setPContructible(zn.pConstructible);
 }
