@@ -95,7 +95,7 @@ std::ostream& operator<<(std::ostream& os, const Polygone<T>& poly)
     for (size_t i = 0; i < sommets.size(); ++i) {
         os << sommets[i];
         if (i < sommets.size() - 1) {
-            os << ", ";
+            os << " | ";
         }
     }
     os << "]";

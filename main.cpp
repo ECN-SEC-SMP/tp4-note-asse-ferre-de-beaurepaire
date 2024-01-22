@@ -94,9 +94,10 @@ int main()
     cout << "Test de la non-translation d'un polygone post recopie: " << endl;
     // Création d'un polygone avec des points entiers
     Polygone<int> originalPoly;
-    originalPoly.addPoint(Point2D<int>(1, 2));
-    originalPoly.addPoint(Point2D<int>(3, 4));
-    originalPoly.addPoint(Point2D<int>(5, 6));
+    originalPoly.addPoint(Point2D<int>(0, 0));
+    originalPoly.addPoint(Point2D<int>(5, 0));
+    originalPoly.addPoint(Point2D<int>(5, 5));
+    originalPoly.addPoint(Point2D<int>(0, 5));
 
     // Affichage du polygone original
     cout << "Polygone original : " << originalPoly << endl;
@@ -122,10 +123,10 @@ int main()
 
     // Création nouvelle parcelle
     Polygone<float> floatPoly;
-    floatPoly.addPoint(Point2D<float>(7.2f, 2.2f));
-    floatPoly.addPoint(Point2D<float>(1.2f, 3.2f));
     floatPoly.addPoint(Point2D<float>(0.0f, 0.0f));
-    floatPoly.addPoint(Point2D<float>(6.3f, 8.1f));
+    floatPoly.addPoint(Point2D<float>(13.2f, 3.2f));
+    floatPoly.addPoint(Point2D<float>(26.3f, 18.1f));
+    floatPoly.addPoint(Point2D<float>(1.3f, 22.8f));
     Parcelle<float> parcelle2(4, "David", floatPoly);
 
     cout << "Parcelle2 (float, contructeur détaillé) - " << parcelle2 << endl;
@@ -133,5 +134,31 @@ int main()
     Parcelle<float> parcelleCopie(parcelle2);
     cout << parcelleCopie << endl;
     cout << "parcelleCopie (copie de parcelle2) - " << parcelleCopie << endl;
+
+    cout << "Test du re-calcul de la surface - " << parcelleCopie << endl;
+    Polygone<float> lesPolyFloat;
+    lesPolyFloat.addPoint(Point2D<float>(0.0f, 0.0f));
+    lesPolyFloat.addPoint(Point2D<float>(10.0f, 0.0f));
+    lesPolyFloat.addPoint(Point2D<float>(10.0f, 10.0f));
+    lesPolyFloat.addPoint(Point2D<float>(0.0f, 10.0f));
+    parcelle2.setForme(lesPolyFloat);
+    cout << "Recalcul de la surface suite à la modification de la forme - " << parcelle2 << endl;
+
+    cout << "Tentative de calcul d'une surface négative - " << endl;
+    Polygone<int> negPoly;
+    negPoly.addPoint(Point2D<int>(0, 0));
+    negPoly.addPoint(Point2D<int>(0, 10));
+    negPoly.addPoint(Point2D<int>(10, 10));
+    negPoly.addPoint(Point2D<int>(10, 0));
+
+    try
+    {
+        Parcelle<int> parcNeg(9, "Coco", negPoly);
+    }
+    catch(const domain_error& e)
+    {
+        cerr << "Impossible d'instancier la parcelle... " << e.what() << endl;
+    }
+
     return 0;
 }
