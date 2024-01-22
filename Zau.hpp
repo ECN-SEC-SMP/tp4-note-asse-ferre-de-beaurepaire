@@ -7,7 +7,7 @@
 using namespace std;
 
 template <typename T>
-class Zau : Zu
+class Zau : public Zu<T>
 {
     private :
 
