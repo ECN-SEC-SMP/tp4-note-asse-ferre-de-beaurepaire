@@ -2,7 +2,7 @@
 #include "Point2D.hpp"
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
-#include "Zu.hpp"
+#include "Carte.hpp"
 
 using namespace std;
 
@@ -161,22 +161,11 @@ int main()
         cerr << "Impossible d'instancier la parcelle... " << e.what() << endl;
     }
 
-    cout << "*****************************ZU*******************************" << endl;
-    cout << "Test d'instanciation d'une Zu avec une zone construite inférieure à la surface de la Zu..." << endl;
-    // originalPoly surface égale à 25
-    Zu<int> goodZu(4, "David", originalPoly, 5);
-    cout << goodZu << "Surface restante: " << goodZu.surfaceConstructible()  << endl;
-
-    cout << "Test d'instanciation d'une Zu avec une zone construite plus grande que la surface de la Zu..." << endl;
-    try
-    {
-        // originalPoly surface égale à 25
-        Zu<int> myZu(4, "David", originalPoly, 30);
-    }
-    catch(const std::exception& e)
-    {
-        cerr << "Erreur, surface contruite supérieure à la surface de la zone..." << e.what() << '\n';
-    }
-
+    cout << "*****************************CARTE*******************************" << endl;
+    Carte<float> carte;
+    carte.ajouterParcelle(parcelle2);
+    carte.ajouterParcelle(parcelleCopie);
+    carte.afficherCarte();
+    carte.sauvegarderCarte();
     return 0;
 }
