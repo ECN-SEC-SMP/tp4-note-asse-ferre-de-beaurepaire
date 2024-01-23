@@ -168,10 +168,8 @@ void Parcelle<T>::setForme(Polygone<T> forme)
 template <typename T>
 ostream& operator<<(ostream& os, const Parcelle<T>& parc)
 {
-    os << "Parcelle :";
-    os << " Type: " << parc.getType() << " Proprietaire: " << parc.getProprietaire() << endl;
-    os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.getPContructible() << endl;
-    os << " Surface: " << parc.getSurface() << " forme: " << parc.getForme();
+    os << parc.getType() << " " << parc.getNumero() << " " << parc.getProprietaire() <<" "<< parc.getSurface() << " " << parc.getPContructible() << endl;
+    os << parc.getForme();
 
     return os;
 }

@@ -59,15 +59,19 @@ void Carte<T>::sauvegarderCarte() const
         // Écrire du contenu dans le fichier
         for (const Parcelle<T> parcelle : this->parcelles)
         {
-            fichierSortie << parcelle << "\n\n";
+            fichierSortie << parcelle << "\n";
         }
         // Fermer le fichier après avoir écrit
         fichierSortie.close();
 
-        std::cout << "Le fichier a été créé et rempli avec succès.\n";
+        std::cout << "La carte est extraite.\n";
     }
     else
     {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier pour écriture.\n";
     }
 }
+    // os << "Parcelle :";
+    // os << " Type: " << parc.getType() << " Proprietaire: " << parc.getProprietaire() << endl;
+    // os << " Numero: " << parc.getNumero() << " pConstructible: " << parc.getPContructible() << endl;
+    // os << " Surface: " << parc.getSurface() << " forme: " << parc.getForme();
