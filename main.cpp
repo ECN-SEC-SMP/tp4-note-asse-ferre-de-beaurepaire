@@ -6,6 +6,7 @@
 #include "Zau.hpp"
 #include "Zn.hpp"
 #include "Za.hpp"
+#include "Carte.hpp"
 
 using namespace std;
 
@@ -249,6 +250,13 @@ int main()
     cout << zuori << endl;
     Zu<int> zuoricopy(zuori);
     cout << zuoricopy << endl;
+
+    cout << "*****************************CARTE*******************************" << endl;
+    Carte<float> carte;
+    carte.ajouterParcelle(parcelle2);
+    carte.ajouterParcelle(parcelleCopie);
+    carte.afficherCarte();
+    carte.sauvegarderCarte();
 
     return 0;
 }
