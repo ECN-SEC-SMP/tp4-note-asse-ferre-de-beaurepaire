@@ -36,24 +36,15 @@ class Polygone
 
 // Constructeur par défaut
 template <typename T>
-Polygone<T>::Polygone()
-{
-
-}
+Polygone<T>::Polygone() {}
 
 // Constructeur avec des valeurs initiales
 template <typename T>
-Polygone<T>::Polygone(vector<Point2D<T> > listeSommets) : sommets(listeSommets)
-{
-
-}
+Polygone<T>::Polygone(vector<Point2D<T> > listeSommets) : sommets(listeSommets) {}
 
 // Constructeur par recopie
 template <typename T>
-Polygone<T>::Polygone(const Polygone<T>& poly) : sommets(poly.sommets)
-{
-
-}
+Polygone<T>::Polygone(const Polygone<T>& poly) : sommets(poly.sommets) {}
 
 // Accesseurs get
 template <typename T>

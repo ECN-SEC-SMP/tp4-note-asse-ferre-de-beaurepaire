@@ -22,11 +22,10 @@ class Zn : public Parcelle<T>
         Zn(const Zn& zn);
 };
 
-
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 // Constructeur par défaut
 template <typename T>
-Zn<T>::Zn()
+Zn<T>::Zn() : Parcelle<T>()
 {
     this->setType("ZN");
     this->setPContructible(0);
@@ -34,8 +33,7 @@ Zn<T>::Zn()
 
 // Constructeur détaillé
 template <typename T>
-Zn<T>::Zn(int num, string prop, Polygone<T> forme)
-: Parcelle<T>(num, prop, forme)
+Zn<T>::Zn(int num, string prop, Polygone<T> forme) : Parcelle<T>(num, prop, forme)
 {
     this->setType("ZN");
     this->setPContructible(0);
@@ -43,7 +41,8 @@ Zn<T>::Zn(int num, string prop, Polygone<T> forme)
 
 // Constructeur par recopie
 template <typename T>
-Zn<T>::Zn(const Zn& zn)
+Zn<T>::Zn(const Zn& zn): Parcelle<T>(zn)
 {
-    this->setPContructible(zn.pConstructible);
+    this->setPContructible(zn.getPContructible());
+    this->setType(zn.getType());
 }

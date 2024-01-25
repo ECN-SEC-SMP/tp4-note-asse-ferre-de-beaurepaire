@@ -245,5 +245,10 @@ int main()
     Za<int> zaInt(92, "Didier", poly2400, "radis");
     cout << zaInt << endl;
 
+    Zu<int> zuori(78, "david", poly2400, 55, 100);
+    cout << zuori << endl;
+    Zu<int> zuoricopy(zuori);
+    cout << zuoricopy << endl;
+
     return 0;
 }

@@ -55,7 +55,7 @@ class Parcelle
 template <typename T>
 Parcelle<T>::Parcelle() : type(""), proprietaire(""), numero(0), pConstructible(100), surface(0.0f), forme(Polygone<T>())
 {
-
+    this->surface = 0;
 }
 
 // Constructeur détaillé

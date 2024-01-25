@@ -1,5 +1,8 @@
-#ifndef POINT2D_HPP
-#define POINT2D_HPP
+#pragma once
+
+#include <iostream>
+
+using namespace std;
 
 template <typename T>
 class Point2D
@@ -30,50 +33,50 @@ private:
     T y;
 };
 
-// Inclusion de l'implémentation directement dans le fichier d'en-tête
+// Implémentation des méthodes
+
+// Constructeur par défaut
 template <typename T>
-Point2D<T>::Point2D() : x(T()), y(T())
-{
+Point2D<T>::Point2D() : x(T()), y(T()) {}
 
-}
+// Constructeur avec des valeurs initiales
 
 template <typename T>
-Point2D<T>::Point2D(T initialX, T initialY) : x(initialX), y(initialY)
-{
+Point2D<T>::Point2D(T initialX, T initialY) : x(initialX), y(initialY) {}
 
-}
-
-// Implémentation du constructeur par recopie
+// Constructeur par recopie
 template <typename T>
-Point2D<T>::Point2D(const Point2D& other) : x(other.x), y(other.y)
-{
+Point2D<T>::Point2D(const Point2D& other) : x(other.x), y(other.y) {}
 
-}
-
+// Accesseur pour X
 template <typename T>
 T Point2D<T>::getX() const
 {
     return x;
 }
 
+// Accesseur pour Y
 template <typename T>
 T Point2D<T>::getY() const
 {
     return y;
 }
 
+// Mutateur pour X
 template <typename T>
 void Point2D<T>::setX(T newX)
 {
     x = newX;
 }
 
+// Mutateur pour Y
 template <typename T>
 void Point2D<T>::setY(T newY)
 {
     y = newY;
 }
 
+// Méthode pour déplacer les coordonnées du point
 template <typename T>
 void Point2D<T>::translate(T deltaX, T deltaY)
 {
@@ -83,10 +86,8 @@ void Point2D<T>::translate(T deltaX, T deltaY)
 
 // Surcharge de l'opérateur de sortie pour print
 template <typename T>
-std::ostream& operator<<(std::ostream& os, const Point2D<T>& point)
+ostream& operator<<(ostream& os, const Point2D<T>& point)
 {
     os << "X: " << point.getX() << ", Y: " << point.getY();
     return os;
 }
-
-#endif // POINT2D_HPP

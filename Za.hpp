@@ -6,7 +6,7 @@
 using namespace std;
 
 template <typename T>
-class Za : public Parcelle<T>
+class Za : public Zn<T>
 {
     private:
 
@@ -34,7 +34,7 @@ class Za : public Parcelle<T>
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 // Constructeur par défaut
 template <typename T>
-Za<T>::Za() : typeCulture("")
+Za<T>::Za() : Zn<T>(), typeCulture("")
 {
     this->setType("ZA");
     this->setPContructible(0);
@@ -43,7 +43,7 @@ Za<T>::Za() : typeCulture("")
 // Constructeur détaillé
 template <typename T>
 Za<T>::Za(int num, string prop, Polygone<T> forme, string tCulture)
-: Parcelle<T>(num, prop, forme)
+: Zn<T>(num, prop, forme)
 {
     this->setType("ZA");
     this->setPContructible(0);
@@ -52,11 +52,11 @@ Za<T>::Za(int num, string prop, Polygone<T> forme, string tCulture)
 
 // Constructeur par recopie
 template <typename T>
-Za<T>::Za(const Za& Za)
+Za<T>::Za(const Za& za) : Zn<T>(za)
 {
-    this->setType(Za.type);
-    this->setPContructible(Za.pConstructible);
-    this->setTypeCulture(Za.typeCulture);
+    this->setType(za.type);
+    this->setPContructible(za.pConstructible);
+    this->setTypeCulture(za.typeCulture);
 }
 
 // Getter

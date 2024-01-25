@@ -18,8 +18,14 @@ class Zu : public Parcelle<T>, public Constructible
     protected:
 
     public:
+        // Constructeur par défaut
         Zu();
+
+        // Constructeur avec des valeurs initiales
         Zu(int num, string prop, Polygone<T> form, float surfaceConstruite, int pConstructible);
+
+        // Constructeur par recopie
+        Zu(const Zu<T>& other);
 
         // Redéfinition de la méthode virtuelle pure
         virtual float surfaceConstructible() const override;
@@ -30,12 +36,14 @@ class Zu : public Parcelle<T>, public Constructible
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 
+// Constructeur par défaut
 template <typename T>
 Zu<T>::Zu() : Parcelle<T>(),  surfaceConstruite(0)
 {
-
+    this->setType("Zu");
 }
 
+// Constructeur avec des valeurs initiales
 template <typename T>
 Zu<T>::Zu(int num, string prop, Polygone<T> form, float surfaceConstruite, int pConstructible) : Parcelle<T>(num, prop, form)
 {
@@ -48,7 +56,12 @@ Zu<T>::Zu(int num, string prop, Polygone<T> form, float surfaceConstruite, int p
     if (this->surfaceConstructible() < 0.0f)
         throw invalid_argument("La surface contruite ne peut pas être supérieure à la surface de la parcelle...");
 
+    this->setType("Zu");
 }
+
+// Constructeur par recopie
+template <typename T>
+Zu<T>::Zu(const Zu<T>& other) : Parcelle<T>(other), surfaceConstruite(other.surfaceConstruite) {}
 
 // Redéfinition de la méthode virtuelle pure
 template <typename T>
