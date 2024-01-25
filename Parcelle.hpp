@@ -147,7 +147,7 @@ void Parcelle<T>::setType(string type)
 template <typename T>
 void Parcelle<T>::setProprietaire(string prop)
 {
-    this->numero = prop;
+    this->proprietaire = prop;
 }
 
 template <typename T>

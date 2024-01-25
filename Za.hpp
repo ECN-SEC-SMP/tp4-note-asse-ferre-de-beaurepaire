@@ -37,7 +37,6 @@ template <typename T>
 Za<T>::Za() : Zn<T>(), typeCulture("")
 {
     this->setType("ZA");
-    this->setPContructible(0);
 }
 
 // Constructeur détaillé
@@ -46,18 +45,12 @@ Za<T>::Za(int num, string prop, Polygone<T> forme, string tCulture)
 : Zn<T>(num, prop, forme)
 {
     this->setType("ZA");
-    this->setPContructible(0);
     this->setTypeCulture(tCulture);
 }
 
 // Constructeur par recopie
 template <typename T>
-Za<T>::Za(const Za& za) : Zn<T>(za)
-{
-    this->setType(za.type);
-    this->setPContructible(za.pConstructible);
-    this->setTypeCulture(za.typeCulture);
-}
+Za<T>::Za(const Za& za) : Zn<T>(za), typeCulture(za.typeCulture) {}
 
 // Getter
 template <typename T>
@@ -75,9 +68,9 @@ void Za<T>::setTypeCulture(string newTypeCulture)
 
 //Surcharge de l'opérateur de sortie <<
 template <typename T>
-ostream& operator<<(ostream& os, const Za<T>& Za)
+ostream& operator<<(ostream& os, const Za<T>& za)
 {
-    os << static_cast<const Parcelle<T>&>(Za) << endl; // Appel de l'opérateur << de la classe Parcelle
-    os << " Type de Culture: " << Za.getTypeCulture() << endl;
+    os << static_cast<const Parcelle<T>&>(za) << endl; // Appel de l'opérateur << de la classe Parcelle
+    os << " Type de Culture: " << za.getTypeCulture() << endl;
     return os;
 }
