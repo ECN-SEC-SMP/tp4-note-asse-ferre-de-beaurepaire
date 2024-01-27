@@ -79,7 +79,7 @@ void Polygone<T>::translate(T x, T y)
 
 // Surcharge de l'opérateur de sortie <<
 template <typename T>
-std::ostream& operator<<(std::ostream& os, const Polygone<T>& poly)
+ostream& operator<<(ostream& os, const Polygone<T>& poly)
 {
     os << "Polygone [";
     const auto& sommets = poly.getSommets();

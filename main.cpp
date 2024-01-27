@@ -197,7 +197,7 @@ int main()
     cout << zn1 << endl;
 
     // Test du constructeur détaillé
-    Zn<int> zn2(2, "Je sais plus", polygone5_2100);
+    Zn<int> zn2(2, "Je sais plus", polygone5_2100, "Gateau");
     cout << "Zn2 (avec des valeurs initiales) : " << endl;
     cout << zn2 << endl;
 
@@ -209,6 +209,12 @@ int main()
     cout << endl << "------------------------------" << endl;
     cout << "Tests pour la classe Za :" << endl;
     cout         << "------------------------------" << endl;
+
+    Polygone<int> poly1200;
+    poly1200.addPoint(Point2D<int>(0, 0));
+    poly1200.addPoint(Point2D<int>(40, 0));
+    poly1200.addPoint(Point2D<int>(40, 15));
+    poly1200.addPoint(Point2D<int>(0, 15));
 
     // Test du constructeur par défaut
     Za<int> za1;
@@ -228,6 +234,16 @@ int main()
     // Test des getters et setters
     za1.setTypeCulture("Maïs");
     cout << "Type de culture de za1 après modification (utilisation de méthode \"set\"): " << za1.getTypeCulture() << endl;
+
+    // Test du constructeur détaillé
+    Za<int> za4(2, "Fiuuuuuuuuuuuuuu", poly1200, "Blé");
+    cout << "za4 (test surface constructible à 60) : " << endl;
+    cout << za4 << endl;
+
+    // Test du constructeur détaillé
+    Za<int> za5(2, "Fiuuuuuuuuuuuuuu", polygone5_2100, "Blé");
+    cout << "za5 (test surface écretée à 200) : " << endl;
+    cout << za5 << endl;
 
     cout << endl << "------------------------------" << endl;
     cout << "Tests pour la classe Carte :" << endl;

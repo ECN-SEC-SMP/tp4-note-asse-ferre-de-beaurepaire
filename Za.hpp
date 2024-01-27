@@ -6,11 +6,9 @@
 using namespace std;
 
 template <typename T>
-class Za : public Zn<T>
+class Za : public Zn<T>, public Constructible
 {
     private:
-
-        string typeCulture;
 
     protected:
 
@@ -23,54 +21,46 @@ class Za : public Zn<T>
         // Constructeur par recopie
         Za(const Za& Za);
 
-        // Assesseur get
-        string getTypeCulture() const;
-
-        // Assesseur set
-        void setTypeCulture(string newTypeCulture);
+        // Redéfinition de la méthode virtuelle pure
+        virtual float surfaceConstructible() const override;
 };
 
 
 // Inclusion de l'implémentation directement dans le fichier d'en-tête
 // Constructeur par défaut
 template <typename T>
-Za<T>::Za() : Zn<T>(), typeCulture("")
+Za<T>::Za() : Zn<T>()
 {
     this->setType("ZA");
+    this->setPContructible(10);
 }
 
 // Constructeur détaillé
 template <typename T>
 Za<T>::Za(int num, string prop, Polygone<T> forme, string tCulture)
-: Zn<T>(num, prop, forme)
+: Zn<T>(num, prop, forme, tCulture)
 {
     this->setType("ZA");
-    this->setTypeCulture(tCulture);
+    this->setPContructible(10);
 }
 
 // Constructeur par recopie
 template <typename T>
-Za<T>::Za(const Za& za) : Zn<T>(za), typeCulture(za.typeCulture) {}
+Za<T>::Za(const Za& za) : Zn<T>(za) {}
 
-// Getter
+// Redéfinition de la méthode virtuelle pure
 template <typename T>
-string Za<T>::getTypeCulture() const
+float Za<T>::surfaceConstructible() const
 {
-    return this->typeCulture;
-}
-
-// Setter
-template <typename T>
-void Za<T>::setTypeCulture(string newTypeCulture)
-{
-    this->typeCulture = newTypeCulture;
+    int s_constructible = (this->getSurface() * this->getPContructible()) / 100;
+    return (s_constructible > 200) ? 200 : s_constructible;
 }
 
 //Surcharge de l'opérateur de sortie <<
 template <typename T>
 ostream& operator<<(ostream& os, const Za<T>& za)
 {
-    os << static_cast<const Parcelle<T>&>(za) << endl; // Appel de l'opérateur << de la classe Parcelle
-    os << " Type de Culture: " << za.getTypeCulture() << endl;
+    os << static_cast<const Zn<T>&>(za) << endl; // Appel de l'opérateur << de la classe Parcelle
+    os << "     Surface constructible: " << za.surfaceConstructible() << endl;
     return os;
 }
